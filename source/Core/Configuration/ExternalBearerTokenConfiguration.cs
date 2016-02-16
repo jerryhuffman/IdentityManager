@@ -21,7 +21,7 @@ using System.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel.Security.Tokens;
-using Thinktecture.IdentityModel.Owin.ScopeValidation;
+//using Thinktecture.IdentityModel.Owin.ScopeValidation;
 
 namespace IdentityManager.Configuration
 {
@@ -74,13 +74,15 @@ namespace IdentityManager.Configuration
             {
                 TokenValidationParameters = jwtParams
             });
-            app.RequireScopes(new ScopeValidationOptions
-            {
-                AllowAnonymousAccess = true,
-                Scopes = new string[] {
-                        Scope
-                }
-            });
+
+            //app.RequireScopes(new ScopeValidationOptions
+            //{
+            //    AllowAnonymousAccess = true,
+            //    Scopes = new string[] {
+            //            Scope
+            //    }
+            //});
+
             if (ClaimsTransformation != null)
             {
                 app.Use(async (ctx, next) =>
